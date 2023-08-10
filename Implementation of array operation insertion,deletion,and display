@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include<conio.h>
+
+void display(int arr[], int size) {
+    for (int i = 0; i < size; i++) printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int insert(int arr[], int size, int element, int position) {
+    for (int i = size; i > position; i--) arr[i] = arr[i - 1];
+    arr[position] = element;
+    return size + 1;
+}
+
+int deleteElement(int arr[], int size, int position) {
+    for (int i = position; i < size - 1; i++) arr[i] = arr[i + 1];
+    return size - 1;
+}
+
+int main() {
+    int arr[50], size, choice, element, position;
+
+    printf("Enter size: "); scanf("%d", &size);
+    for (int i = 0; i < size; i++) scanf("%d", &arr[i]);
+
+    printf("1. Insert\n2. Delete\nChoice: "); scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            printf("Element, Position: ");
+            scanf("%d %d", &element, &position);
+            size = insert(arr, size, element, position);
+            display(arr, size);
+            break;
+
+        case 2:
+            printf("Position: ");
+            scanf("%d", &position);
+            size = deleteElement(arr, size, position);
+            display(arr, size);
+            break;
+
+        default:
+            printf("Invalid choice.\n");
+    }
+    getch();
+    return 0;
+}
