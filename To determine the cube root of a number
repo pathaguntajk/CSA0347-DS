@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+int main()
+{
+    double num = 6, cubeRoot;
+
+    cubeRoot =  cbrt(num);
+    printf("Cube root of %lf =  %lf", num, cubeRoot);
+
+    getch();
+    return 0;
+}
